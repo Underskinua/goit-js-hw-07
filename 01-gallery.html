@@ -1,19 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <head> 
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Image gallery</title>
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css" rel="stylesheet">
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>
 
     <!-- Add gallery items to this list -->
-    <ul class="gallery"></ul>
+    <ul class="gallery">
+      <!-- img-1 -->
+      <li class="gallery__item">
+        <a class="gallery__link" href="https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg">
+          <img
+            class="gallery__image"
+            src="https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg"
+            data-source="https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg"
+            alt="${galleryItems[0].description}"
+          />
+        </a>
+      </li>
+      <!-- img-2 -->
+      <li class="gallery__item">
+        <a class="gallery__link" href="${galleryItems[1].original}">
+          <img
+            class="gallery__image"
+            src="${galleryItems[1].preview}"
+            data-source="${galleryItems[1].original}"
+            alt="${galleryItems[1].description}"
+          />
+        </a>
+      </li>
+      <!-- img-3 -->
+      <li class="gallery__item">
+        <a class="gallery__link" href="${galleryItems[2].original}">
+          <img
+            class="gallery__image"
+            src="${galleryItems[2].preview}"
+            data-source="${galleryItems[2].original}"
+            alt="${galleryItems[2].description}"
+          />
+        </a>
+      </li>
+      <!-- img-4 -->
+      <li class="gallery__item">
+        <a class="gallery__link" href="${galleryItems[3].original}">
+          <img
+            class="gallery__image"
+            src="${galleryItems[3].preview}"
+            data-source="${galleryItems[3].original}"
+            alt="Image description"
+          />
+        </a>
+      </li>
+      <!-- img-4 -->
+      <li class="gallery__item">
+        <a class="gallery__link" href="large-image.jpg">
+          <img
+            class="gallery__image"
+            src="small-image.jpg"
+            data-source="large-image.jpg"
+            alt="Image description"
+          />
+        </a>
+      </li>
+      <!-- img-6 -->
+      <li class="gallery__item">
+        <a class="gallery__link" href="large-image.jpg">
+          <img
+            class="gallery__image"
+            src="small-image.jpg"
+            data-source="large-image.jpg"
+            alt="Image description"
+          />
+        </a>
+      </li>
+      <!-- img-7 -->
+      <li class="gallery__item">
+        <a class="gallery__link" href="large-image.jpg">
+          <img
+            class="gallery__image"
+            src="small-image.jpg"
+            data-source="large-image.jpg"
+            alt="Image description"
+          />
+        </a>
+      </li>
+      <!-- img-8 -->
+      <li class="gallery__item">
+        <a class="gallery__link" href="large-image.jpg">
+          <img
+            class="gallery__image"
+            src="small-image.jpg"
+            data-source="large-image.jpg"
+            alt="Image description"
+          />
+        </a>
+      </li>
+      <!-- img-9 -->
+      <li class="gallery__item">
+        <a class="gallery__link" href="large-image.jpg">
+          <img
+            class="gallery__image"
+            src="small-image.jpg"
+            data-source="large-image.jpg"
+            alt="Image description"
+          />
+        </a>
+      </li>
+      
+    </ul>
 
-    <script src="js/01-gallery.js" type="module"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <script src="./js/01-gallery.js" type="module"></script>
+    <script src="./js/gallery-items.js" type="module"></script>
+
   </body>
 </html>
