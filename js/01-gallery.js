@@ -1,48 +1,32 @@
+import * as basicLightbox from 'basiclightbox';
 import { galleryItems } from './js/gallery-items.js';
-// Change code below this line
 
-console.log(galleryItems);
+const gallery = document.querySelector('.gallery');
 
-// const gallery = document.querySelector('.gallery');
+const createGalleryItem = ({ preview, original, description }) => `
+  <li class="gallery__item">
+    <a class="gallery__link" href="${original}">
+      <img class="gallery__image" src="${preview}" alt="${description}" data-source="${original}" />
+    </a>
+  </li>
+`;
 
-// gallery.addEventListener('click', openModal);
+const galleryMarkup = galleryItems.map(createGalleryItem).join('');
+gallery.innerHTML = galleryMarkup;
 
-// function openModal(event) {
-//   event.preventDefault();
+gallery.addEventListener('click', openModal);
 
-//   if (event.target.nodeName !== 'IMG') {
-//     return;
-//   }
+function openModal(event) {
+  event.preventDefault();
 
-//   const source = event.target.dataset.source;
+  if (event.target.classList.contains('gallery__image')) {
+    const source = event.target.dataset.source;
+    const description = event.target.alt;
 
-//   const instance = basicLightbox.create(`
-//     <img src="${source}" alt="Image">
-//   `);
+    const instance = basicLightbox.create(`
+      <img src="${source}" alt="${description}">
+    `);
 
-//   instance.show();
-// }
-const galleryList = document.querySelector('.gallery');
-
-const createGalleryItem = (item) => {
-  const galleryItem = document.createElement('li');
-  galleryItem.classList.add('gallery__item');
-
-  const galleryLink = document.createElement('a');
-  galleryLink.classList.add('gallery__link');
-  galleryLink.href = item.original;
-
-  const galleryImage = document.createElement('img');
-  galleryImage.classList.add('gallery__image');
-  galleryImage.src = item.preview;
-  galleryImage.alt = item.description;
-  galleryImage.dataset.source = item.original;
-
-  galleryLink.appendChild(galleryImage);
-  galleryItem.appendChild(galleryLink);
-
-  return galleryItem;
-};
-
-const galleryMarkup = galleryItems.map(createGalleryItem);
-galleryList.append(...galleryMarkup);
+    instance.show();
+  }
+}
