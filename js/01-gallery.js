@@ -1,4 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 import { galleryItems } from './js/gallery-items.js';
 
 const gallery = document.querySelector('.gallery');
@@ -19,14 +20,18 @@ gallery.addEventListener('click', openModal);
 function openModal(event) {
   event.preventDefault();
 
-  if (event.target.classList.contains('gallery__image')) {
-    const source = event.target.dataset.source;
-    const description = event.target.alt;
-
-    const instance = basicLightbox.create(`
-      <img src="${source}" alt="${description}">
-    `);
-
-    instance.show();
+  if (event.target.nodeName !== 'IMG') {
+    return;
   }
+
+  const source = event.target.dataset.source;
+  const description = event.target.alt;
+
+  const instance = basicLightbox.create(`
+    <div class="lightbox">
+      <img class="lightbox__image" src="${source}" alt="${description}" />
+    </div>
+  `);
+
+  instance.show();
 }
