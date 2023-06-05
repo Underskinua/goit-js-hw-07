@@ -1,34 +1,33 @@
+import { galleryItems } from './gallery-items.js';
 
-import { galleryItems } from './js/gallery-items.js';
-const basicLightbox = window.basicLightbox;
 const gallery = document.querySelector('.gallery');
 
-gallery.innerHTML = galleryItems
-  .map(({ preview, original, description }) => `
+function createGalleryItem({ preview, original, description }) {
+  return `
     <li class="gallery__item">
       <a class="gallery__link" href="${original}">
         <img class="gallery__image" src="${preview}" alt="${description}" data-source="${original}" />
       </a>
     </li>
-  `)
-  .join('');
+  `;
+}
+
+const galleryMarkup = galleryItems.map(createGalleryItem).join('');
+gallery.innerHTML = galleryMarkup;
 
 gallery.addEventListener('click', openModal);
 
 function openModal(event) {
   event.preventDefault();
 
-  const { target } = event;
+  if (event.target.classList.contains('gallery__image')) {
+    const source = event.target.dataset.source;
+    const description = event.target.alt;
 
-  if (target.classList.contains('gallery__image')) {
-    const source = target.dataset.source;
-    const description = target.alt;
-
-    console.log('Opening modal with source:', source);
-    console.log('Description:', description);
-
-    basicLightbox.create(`
+    const instance = basicLightbox.create(`
       <img src="${source}" alt="${description}">
-    `).show();
+    `);
+
+    instance.show();
   }
 }
