@@ -43,3 +43,52 @@
   cursor: zoom-in;
 }
 
+.simple-lightbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.simple-lightbox .sl-prev,
+.simple-lightbox .sl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 124px; 
+  color: #808080; 
+  border: none;
+  background-color: transparent;
+  
+}
+
+.simple-lightbox .sl-prev {
+  left: -150px; 
+}
+
+.simple-lightbox .sl-next {
+  right: -150px; 
+}
+
+.simple-lightbox .sl-close {  
+  position: absolute;
+  top: -130px;
+  right: -150px;
+  font-size: 124px; 
+  color: #808080; 
+  border: none;
+  background-color: transparent;
+}
+
+.simple-lightbox .sl-counter {
+  top: -90px;
+  left: -150px;
+  font-size: 54px;    
+  color: #808080;
+  position: absolute;
+}
+
+.sl-caption {
+  color: white;
+}
