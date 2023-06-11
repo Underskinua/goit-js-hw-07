@@ -90,5 +90,19 @@
 }
 
 .sl-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.simple-lightbox.show-caption .sl-caption {
+  opacity: 1;
 }
